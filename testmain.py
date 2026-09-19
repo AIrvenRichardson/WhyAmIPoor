@@ -1,14 +1,13 @@
 # A simple script for calling functions in isolation.
-import import_csv
-import sys
+import data_management
+import sys, sqlite3
 
 def main():
 
-    if len(sys.argv) != 2:
-        raise IndexError("Dude, you just have to put in a file path it is not that hard.")
-
-    import_csv.read_transactions(None, sys.argv[1], "Posted Date")
-    print("??????")
+    con = data_management.open_create_db("test.db")
+    cur = con.cursor()
+    res = cur.execute("SELECT * FROM transactions")
+    print(res.fetchall())
     return
 
 main()

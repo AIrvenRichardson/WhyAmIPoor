@@ -1,3 +1,5 @@
 # Honestly not a lot you could do with my financial data but you could determine how fat I am
 test_data/
 __pycache__/
+*.csv
+*.db
